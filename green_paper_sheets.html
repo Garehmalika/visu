@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GREEN Analytics — Paper Sheets</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #c8c4ba;
+  padding: 2rem;
+  font-family: 'Caveat', cursive;
+}
+
+.print-bar {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.print-title { font-size: 1.1rem; color: #2a2a28; font-weight: 600; }
+.print-btn {
+  padding: .5rem 1.2rem;
+  background: #2a2a28;
+  color: #fff;
+  border: none;
+  font-family: 'Caveat', cursive;
+  font-size: .9rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* ─── SHEET ─── */
+.sheet {
+  width: 900px;
+  height: 640px;
+  background: #f8f5ef;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  box-shadow: 3px 4px 0 rgba(0,0,0,.15), 0 2px 20px rgba(0,0,0,.1);
+  overflow: hidden;
+}
+
+/* slight paper texture */
+.sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23f8f5ef'/%3E%3Crect x='0' y='0' width='1' height='1' fill='%23e8e3d8' opacity='.3'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── SVG takes full sheet ─── */
+.sheet svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── SHEET NUMBER label ─── */
+.sheet-num {
+  position: absolute;
+  top: 14px;
+  left: 22px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2a2a28;
+  letter-spacing: .04em;
+  z-index: 2;
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .print-bar { display: none; }
+  .sheet {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 900/640;
+    margin-bottom: 0;
+    page-break-after: always;
+    box-shadow: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="print-bar">
+  <div class="print-title">GREEN Analytics — Paper Prototype Sheets</div>
+  <button class="print-btn" onclick="window.print()">⎙ Imprimer</button>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SHEET 1 — GLOBAL LAYOUT / HOMEPAGE
+═══════════════════════════════════════ -->
+<div class="sheet">
+  <div class="sheet-num">SHEET 1</div>
+  <svg viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        text { font-family: 'Caveat', cursive; fill: #1a1a18; }
+        .hand { stroke: #1a1a18; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .dashed { stroke-dasharray: 7,5; }
+        .light { stroke: #6a6a60; }
+        .yellow { fill: #fff9a0; stroke: #c8b820; }
+      </style>
+    </defs>
+
+    <!-- outer border -->
+    <rect x="18" y="18" width="864" height="604" class="hand" stroke-width="2.2"/>
+
+    <!-- TITLE BOX top-right -->
+    <rect x="480" y="28" width="390" height="160" class="hand" stroke-width="1.6"/>
+    <!-- rows inside title box -->
+    <line x1="480" y1="62" x2="870" y2="62" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="92" x2="870" y2="92" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="122" x2="870" y2="122" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="152" x2="870" y2="152" class="hand" stroke-width="1.2"/>
+    <line x1="660" y1="92" x2="660" y2="188" class="hand" stroke-width="1.2"/>
+    <!-- labels -->
+    <text x="492" y="52" font-size="18" font-weight="600">TITLE :</text>
+    <text x="610" y="52" font-size="17">GREEN Analytics — Dashboard</text>
+    <text x="492" y="82" font-size="18" font-weight="600">AUTHORS :</text>
+    <text x="610" y="82" font-size="17">Équipe projet</text>
+    <text x="492" y="112" font-size="17" font-weight="600">DATE</text>
+    <text x="670" y="112" font-size="17" font-weight="600">SHEET</text>
+    <text x="492" y="138" font-size="16">2026</text>
+    <text x="670" y="138" font-size="16">1 / 5</text>
+    <text x="492" y="168" font-size="17" font-weight="600">TASK</text>
+    <text x="670" y="168" font-size="16">Layout global</text>
+
+    <!-- LAYOUT zone top-left -->
+    <text x="38" y="52" font-size="22" font-weight="700">Layout</text>
+    <!-- layout sketch: header bar -->
+    <rect x="38" y="65" width="420" height="28" class="hand" stroke-width="1.4"/>
+    <text x="46" y="84" font-size="13" fill="#444">[ LOGO GREEN ]</text>
+    <text x="300" y="84" font-size="13" fill="#444">Engrais | Pesticides</text>
+    <!-- hero zone -->
+    <rect x="38" y="98" width="420" height="50" class="hand" stroke-width="1.2" fill="none"/>
+    <line x1="38" y1="107" x2="180" y2="107" class="hand light" stroke-width=".8"/>
+    <line x1="38" y1="116" x2="280" y2="116" class="hand light" stroke-width=".8"/>
+    <line x1="38" y1="125" x2="240" y2="125" class="hand light" stroke-width=".8"/>
+    <text x="46" y="142" font-size="13" fill="#888">hero title + desc</text>
+    <!-- switcher pill -->
+    <rect x="38" y="154" width="160" height="24" rx="12" class="hand" stroke-width="1.2"/>
+    <rect x="38" y="154" width="82" height="24" rx="12" class="hand" stroke-width="1" fill="#d4e8dc" stroke="#3a8f5c"/>
+    <text x="50" y="170" font-size="13" fill="#3a8f5c">🌱 Engrais</text>
+    <text x="128" y="170" font-size="13" fill="#888">🌿 Pest.</text>
+    <!-- map box -->
+    <rect x="38" y="186" width="290" height="145" class="hand" stroke-width="1.4"/>
+    <text x="120" y="265" font-size="15" fill="#3a8f5c" font-weight="600">CARTE</text>
+    <text x="100" y="283" font-size="13" fill="#888">choroplèthe D3</text>
+    <!-- continents hint -->
+    <ellipse cx="110" cy="250" rx="45" ry="30" class="hand light dashed" stroke-width=".9"/>
+    <ellipse cx="200" cy="248" rx="35" ry="28" class="hand light dashed" stroke-width=".9"/>
+    <ellipse cx="268" cy="255" rx="20" ry="18" class="hand light dashed" stroke-width=".9"/>
+    <!-- side panel -->
+    <rect x="336" y="186" width="122" height="145" class="hand" stroke-width="1.2"/>
+    <text x="345" y="210" font-size="13" fill="#888">Info pays</text>
+    <line x1="336" y1="220" x2="458" y2="220" class="hand light" stroke-width=".8"/>
+    <text x="345" y="238" font-size="12" fill="#aaa">🏳 Nom</text>
+    <text x="345" y="256" font-size="12" fill="#aaa">📊 Valeur</text>
+    <text x="345" y="274" font-size="12" fill="#aaa">📈 Trend</text>
+    <text x="345" y="292" font-size="12" fill="#aaa">▬ Bars</text>
+    <text x="345" y="316" font-size="11" fill="#ccc" font-style="italic">état vide si</text>
+    <text x="345" y="330" font-size="11" fill="#ccc" font-style="italic">pas de sélect.</text>
+    <!-- charts row -->
+    <rect x="38" y="340" width="200" height="70" class="hand" stroke-width="1.2"/>
+    <text x="48" y="358" font-size="13" fill="#888">Évolution temporelle</text>
+    <polyline points="50,400 70,388 90,392 110,375 130,378 150,362 170,365 190,355 215,350" class="hand" stroke="#3a8f5c" stroke-width="1.5"/>
+    <rect x="248" y="340" width="210" height="70" class="hand" stroke-width="1.2"/>
+    <text x="258" y="358" font-size="13" fill="#888">Corrélation N × P</text>
+    <circle cx="275" cy="392" r="5" fill="#3a8f5c" opacity=".6"/>
+    <circle cx="305" cy="380" r="7" fill="#2e6e96" opacity=".6"/>
+    <circle cx="340" cy="372" r="4" fill="#c74545" opacity=".6"/>
+    <circle cx="385" cy="363" r="8" fill="#3a8f5c" opacity=".5"/>
+    <circle cx="430" cy="358" r="5" fill="#2e6e96" opacity=".6"/>
+    <line x1="264" y1="400" x2="450" y2="355" class="hand light dashed" stroke-width="1"/>
+    <!-- footer -->
+    <rect x="38" y="420" width="420" height="22" class="hand" stroke-width="1.1"/>
+    <text x="46" y="435" font-size="12" fill="#aaa">© GREEN Analytics · source FAO</text>
+    <text x="380" y="435" font-size="12" fill="#aaa">● ● ●</text>
+
+    <!-- HORIZONTAL divider -->
+    <line x1="28" y1="456" x2="872" y2="456" class="hand dashed" stroke-width="1.5"/>
+    <!-- VERTICAL divider -->
+    <line x1="472" y1="200" x2="472" y2="614" class="hand dashed" stroke-width="1.5"/>
+
+    <!-- OPERATIONS zone top-right of content -->
+    <text x="490" y="230" font-size="22" font-weight="700">OPERATIONS</text>
+    <text x="490" y="258" font-size="16">1. Charger TopoJSON monde (CDN)</text>
+    <text x="490" y="280" font-size="16">2. Dessiner choroplèthe D3</text>
+    <text x="490" y="302" font-size="16">3. Switcher → setAccent(color)</text>
+    <text x="490" y="324" font-size="16">4. Slider → update carte + charts</text>
+    <text x="490" y="346" font-size="16">5. Clic pays → side panel + tags</text>
+    <text x="490" y="368" font-size="16">6. fadeUp animation 400ms</text>
+    <text x="490" y="390" font-size="16">7. Curseur custom #cur + #cur-ring</text>
+    <text x="490" y="412" font-size="16">8. Responsive scroll + sticky header</text>
+
+    <!-- FOCUS/ZOOM bottom-left -->
+    <text x="38" y="490" font-size="22" font-weight="700">Focus / Zoom</text>
+    <!-- zoom of switcher pill detail -->
+    <rect x="38" y="505" width="200" height="90" class="hand" stroke-width="1.2"/>
+    <text x="48" y="522" font-size="13" fill="#888">Switcher pill ×3</text>
+    <rect x="50" y="530" width="176" height="30" rx="15" class="hand" stroke-width="1.2"/>
+    <rect x="50" y="530" width="88" height="30" rx="15" class="hand" stroke-width="1" fill="#d4e8dc" stroke="#3a8f5c"/>
+    <text x="62" y="550" font-size="14" fill="#3a8f5c" font-weight="600">🌱 Engrais</text>
+    <text x="148" y="550" font-size="14" fill="#999">Pest.</text>
+    <text x="50" y="582" font-size="12" fill="#aaa">pill translate .48s cubic-bezier</text>
+    <!-- zoom of tooltip -->
+    <rect x="255" y="505" width="200" height="90" class="hand" stroke-width="1.2"/>
+    <text x="265" y="522" font-size="13" fill="#888">Tooltip carte</text>
+    <rect x="268" y="530" width="150" height="44" rx="4" class="hand" stroke-width="1.1" fill="rgba(30,37,32,.85)" stroke="#1e2520"/>
+    <text x="278" y="548" font-size="12" fill="#fff">🇫🇷 France · 2018</text>
+    <text x="278" y="564" font-size="11" fill="#ccc">N: 142 kg/ha · P: 98</text>
+    <text x="265" y="582" font-size="12" fill="#aaa">position:fixed · z:1000</text>
+
+    <!-- DETAIL post-it bottom-right -->
+    <rect x="490" y="468" width="364" height="130" rx="3" class="hand yellow" stroke-width="1.8"/>
+    <!-- yellow fill -->
+    <rect x="491" y="469" width="362" height="128" rx="2" fill="#fffaaa" stroke="none"/>
+    <rect x="491" y="469" width="362" height="128" rx="2" fill="none" stroke="#c8b820" stroke-width="1.8"/>
+    <text x="502" y="492" font-size="19" font-weight="700">DETAIL</text>
+    <text x="502" y="516" font-size="16">○  variables CSS : --bg --surface --border --text</text>
+    <text x="502" y="538" font-size="16">○  dépend. : D3 v7.8.5 · TopoJSON 3.0.2</text>
+    <text x="502" y="560" font-size="16">○  fonts : Playfair Display + DM Sans</text>
+    <text x="502" y="582" font-size="16">○  matières : SVG world-atlas@2/countries-50m</text>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SHEET 2 — MODE ENGRAIS
+═══════════════════════════════════════ -->
+<div class="sheet">
+  <div class="sheet-num">SHEET 2</div>
+  <svg viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        text { font-family: 'Caveat', cursive; fill: #1a1a18; }
+        .hand { stroke: #1a1a18; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .dashed { stroke-dasharray: 7,5; }
+        .light { stroke: #6a6a60; }
+        .yellow { fill: #fff9a0; stroke: #c8b820; }
+      </style>
+    </defs>
+
+    <rect x="18" y="18" width="864" height="604" class="hand" stroke-width="2.2"/>
+
+    <!-- TITLE BOX -->
+    <rect x="480" y="28" width="390" height="160" class="hand" stroke-width="1.6"/>
+    <line x1="480" y1="62" x2="870" y2="62" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="92" x2="870" y2="92" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="122" x2="870" y2="122" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="152" x2="870" y2="152" class="hand" stroke-width="1.2"/>
+    <line x1="660" y1="92" x2="660" y2="188" class="hand" stroke-width="1.2"/>
+    <text x="492" y="52" font-size="18" font-weight="600">TITLE :</text>
+    <text x="610" y="52" font-size="17">Mode Engrais (N + P)</text>
+    <text x="492" y="82" font-size="18" font-weight="600">AUTHORS :</text>
+    <text x="610" y="82" font-size="17">Équipe projet</text>
+    <text x="492" y="112" font-size="17" font-weight="600">DATE</text>
+    <text x="670" y="112" font-size="17" font-weight="600">SHEET</text>
+    <text x="492" y="138" font-size="16">2026</text>
+    <text x="670" y="138" font-size="16">2 / 5</text>
+    <text x="492" y="168" font-size="17" font-weight="600">TASK</text>
+    <text x="670" y="168" font-size="16">Engrais view</text>
+
+    <!-- LAYOUT -->
+    <text x="38" y="52" font-size="22" font-weight="700">Layout</text>
+    <!-- controls bar -->
+    <rect x="38" y="64" width="420" height="38" class="hand" stroke-width="1.3" fill="#edf5f1" stroke="#3a8f5c"/>
+    <text x="48" y="80" font-size="13" fill="#3a8f5c">Type ▾</text>
+    <text x="110" y="80" font-size="13" fill="#888">|</text>
+    <text x="128" y="75" font-size="19" font-weight="700" fill="#3a8f5c">2019</text>
+    <!-- slider -->
+    <line x1="180" y1="87" x2="380" y2="87" class="hand" stroke="#3a8f5c" stroke-width="2"/>
+    <circle cx="270" cy="87" r="6" fill="#3a8f5c" stroke="#fff" stroke-width="2"/>
+    <text x="180" y="98" font-size="10" fill="#888">2015</text>
+    <text x="363" y="98" font-size="10" fill="#888">2024</text>
+
+    <!-- map + side -->
+    <rect x="38" y="106" width="300" height="160" class="hand" stroke-width="1.4"/>
+    <text x="130" y="188" font-size="15" fill="#3a8f5c" font-weight="600">Carte monde</text>
+    <ellipse cx="105" cy="178" rx="42" ry="28" class="hand light dashed" stroke-width=".9"/>
+    <ellipse cx="195" cy="175" rx="34" ry="26" class="hand light dashed" stroke-width=".9"/>
+    <!-- gradient legend -->
+    <rect x="48" y="255" width="100" height="8" rx="4" fill="url(#gn)" stroke="#dde0da" stroke-width=".7"/>
+    <defs><linearGradient id="gn" x1="0" x2="1"><stop offset="0" stop-color="rgba(58,143,92,.1)"/><stop offset="1" stop-color="#3a8f5c"/></linearGradient></defs>
+    <text x="48" y="273" font-size="11" fill="#888">Faible</text>
+    <text x="118" y="273" font-size="11" fill="#888">Élevée</text>
+
+    <rect x="346" y="106" width="112" height="160" class="hand" stroke-width="1.2"/>
+    <text x="355" y="126" font-size="14" fill="#888">Info pays</text>
+    <line x1="346" y1="134" x2="458" y2="134" class="hand light" stroke-width=".8"/>
+    <text x="355" y="152" font-size="28">🇫🇷</text>
+    <text x="355" y="176" font-size="14" font-weight="600">France</text>
+    <text x="355" y="198" font-size="20" font-weight="700" fill="#3a8f5c">142.5</text>
+    <text x="355" y="214" font-size="11" fill="#888">kg/ha · azote</text>
+    <rect x="355" y="220" width="50" height="16" rx="3" fill="#fde8e8" stroke="none"/>
+    <text x="358" y="232" font-size="11" fill="#c74545">+3.2% ↑</text>
+
+    <!-- selected bar -->
+    <rect x="38" y="276" width="420" height="24" rx="4" class="hand" stroke-width="1.1" fill="#e8f3ed" stroke="#3a8f5c"/>
+    <text x="48" y="292" font-size="12" fill="#3a8f5c">Pays sélectionnés :</text>
+    <rect x="180" y="280" width="72" height="16" rx="8" fill="#3a8f5c" stroke="none"/>
+    <text x="187" y="291" font-size="11" fill="#fff">🇫🇷 France ×</text>
+    <rect x="260" y="280" width="90" height="16" rx="8" fill="#3a8f5c" stroke="none"/>
+    <text x="267" y="291" font-size="11" fill="#fff">🇩🇪 Allemagne ×</text>
+
+    <!-- 2 charts side by side -->
+    <rect x="38" y="308" width="200" height="80" class="hand" stroke-width="1.2"/>
+    <text x="48" y="325" font-size="13" fill="#888">Évolution temporelle</text>
+    <polyline points="48,375 68,362 88,365 108,350 128,353 148,340 168,343 195,332 230,328" class="hand" stroke="#3a8f5c" stroke-width="1.8"/>
+    <polyline points="48,380 68,378 88,372 108,375 128,370 148,368 168,372 195,360 230,355" class="hand" stroke="#c74545" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+    <rect x="248" y="308" width="210" height="80" class="hand" stroke-width="1.2"/>
+    <text x="258" y="325" font-size="13" fill="#888">Corrélation N × P</text>
+    <circle cx="275" cy="368" r="5" fill="#3a8f5c" opacity=".7"/>
+    <circle cx="308" cy="358" r="7" fill="#2e6e96" opacity=".7"/>
+    <circle cx="350" cy="348" r="4" fill="#c74545" opacity=".7"/>
+    <circle cx="400" cy="340" r="9" fill="#3a8f5c" opacity=".55"/>
+    <circle cx="440" cy="335" r="6" fill="#2e6e96" opacity=".7"/>
+    <line x1="260" y1="376" x2="452" y2="328" class="hand light dashed" stroke-width="1"/>
+    <text x="258" y="382" font-size="10" fill="#aaa">→ azote (kg/ha)</text>
+    <text x="248" y="305" font-size="10" fill="#aaa" transform="rotate(-90,248,305)" x="248" y="380">phosphore ↑</text>
+
+    <!-- DIVIDERS -->
+    <line x1="28" y1="456" x2="872" y2="456" class="hand dashed" stroke-width="1.5"/>
+    <line x1="472" y1="200" x2="472" y2="614" class="hand dashed" stroke-width="1.5"/>
+
+    <!-- OPERATIONS -->
+    <text x="490" y="230" font-size="22" font-weight="700">OPERATIONS</text>
+    <text x="490" y="258" font-size="16">1. onEngYearChange(val) → update map</text>
+    <text x="490" y="280" font-size="16">2. Dropdown type → azote / phosphore</text>
+    <text x="490" y="302" font-size="16">3. Clic carte → updateCountryInfo()</text>
+    <text x="490" y="324" font-size="16">4. Clic pays → selectedCountries[]</text>
+    <text x="490" y="346" font-size="16">5. updateSelectedCountriesBar()</text>
+    <text x="490" y="368" font-size="16">6. drawEngLineChart() → multi-lines</text>
+    <text x="490" y="390" font-size="16">7. drawCorrelationChart() scatter</text>
+    <text x="490" y="412" font-size="16">8. drawSoilQualityChart() beeswarm</text>
+
+    <!-- FOCUS/ZOOM -->
+    <text x="38" y="490" font-size="22" font-weight="700">Focus / Zoom</text>
+    <rect x="38" y="502" width="200" height="96" class="hand" stroke-width="1.2"/>
+    <text x="48" y="520" font-size="13" fill="#888">Slider + display année</text>
+    <text x="48" y="542" font-size="26" font-weight="700" fill="#3a8f5c">2019</text>
+    <line x1="48" y1="556" x2="225" y2="556" class="hand" stroke="#3a8f5c" stroke-width="3"/>
+    <circle cx="140" cy="556" r="8" fill="#3a8f5c" stroke="#fff" stroke-width="2.5"/>
+    <text x="48" y="575" font-size="11" fill="#888">gradient bg update JS</text>
+    <text x="48" y="590" font-size="11" fill="#888">oninput → eng-year-display</text>
+
+    <rect x="256" y="502" width="198" height="96" class="hand" stroke-width="1.2"/>
+    <text x="266" y="520" font-size="13" fill="#888">Change badge</text>
+    <rect x="266" y="530" width="62" height="20" rx="4" fill="#fde8e8" stroke="none"/>
+    <text x="270" y="544" font-size="14" fill="#c74545" font-weight="600">+3.2% ↑</text>
+    <text x="336" y="544" font-size="13" fill="#888">increase</text>
+    <rect x="266" y="558" width="62" height="20" rx="4" fill="#e8f3ed" stroke="none"/>
+    <text x="270" y="572" font-size="14" fill="#3a8f5c" font-weight="600">−1.1% ↓</text>
+    <text x="336" y="572" font-size="13" fill="#888">decrease</text>
+    <rect x="266" y="582" width="62" height="14" rx="3" fill="#eef0ec" stroke="none"/>
+    <text x="270" y="593" font-size="12" fill="#8a9488">0.0%</text>
+    <text x="336" y="593" font-size="13" fill="#888">neutral</text>
+
+    <!-- DETAIL post-it -->
+    <rect x="491" y="469" width="362" height="128" rx="2" fill="#fffaaa" stroke="#c8b820" stroke-width="1.8"/>
+    <text x="502" y="492" font-size="19" font-weight="700">DETAIL</text>
+    <text x="502" y="514" font-size="16">○  algorithms : D3 choropleth · quantile scale</text>
+    <text x="502" y="536" font-size="16">○  dépendances : engData[] par pays/année</text>
+    <text x="502" y="558" font-size="16">○  time to build : slider 2015→2024</text>
+    <text x="502" y="580" font-size="16">○  matériaux : nitrogen + phosphorus datasets</text>
+    <text x="502" y="593" font-size="15" fill="#666">     max 5 pays sélectionnables simultanément</text>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SHEET 3 — MODE PESTICIDES CARTE
+═══════════════════════════════════════ -->
+<div class="sheet">
+  <div class="sheet-num">SHEET 3</div>
+  <svg viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        text { font-family: 'Caveat', cursive; fill: #1a1a18; }
+        .hand { stroke: #1a1a18; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .dashed { stroke-dasharray: 7,5; }
+        .light { stroke: #6a6a60; }
+      </style>
+    </defs>
+    <rect x="18" y="18" width="864" height="604" class="hand" stroke-width="2.2"/>
+
+    <!-- TITLE BOX -->
+    <rect x="480" y="28" width="390" height="160" class="hand" stroke-width="1.6"/>
+    <line x1="480" y1="62" x2="870" y2="62" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="92" x2="870" y2="92" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="122" x2="870" y2="122" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="152" x2="870" y2="152" class="hand" stroke-width="1.2"/>
+    <line x1="660" y1="92" x2="660" y2="188" class="hand" stroke-width="1.2"/>
+    <text x="492" y="52" font-size="18" font-weight="600">TITLE :</text>
+    <text x="610" y="52" font-size="17">Mode Pesticides — Carte</text>
+    <text x="492" y="82" font-size="18" font-weight="600">AUTHORS :</text>
+    <text x="610" y="82" font-size="17">Équipe projet</text>
+    <text x="492" y="112" font-size="17" font-weight="600">DATE</text>
+    <text x="670" y="112" font-size="17" font-weight="600">SHEET</text>
+    <text x="492" y="138" font-size="16">2026</text>
+    <text x="670" y="138" font-size="16">3 / 5</text>
+    <text x="492" y="168" font-size="17" font-weight="600">TASK</text>
+    <text x="670" y="168" font-size="16">Pesticide map view</text>
+
+    <!-- LAYOUT -->
+    <text x="38" y="52" font-size="22" font-weight="700">Layout</text>
+    <!-- controls -->
+    <rect x="38" y="64" width="420" height="36" class="hand" stroke-width="1.3" fill="#e8f0f8" stroke="#2e6e96"/>
+    <text x="48" y="78" font-size="13" fill="#2e6e96">Année :</text>
+    <text x="108" y="78" font-size="19" font-weight="700" fill="#2e6e96">2015</text>
+    <line x1="168" y1="78" x2="330" y2="78" class="hand" stroke="#2e6e96" stroke-width="2"/>
+    <circle cx="200" cy="78" r="6" fill="#2e6e96" stroke="#fff" stroke-width="2"/>
+    <text x="340" y="78" font-size="13" fill="#888">Pays ▾</text>
+    <text x="395" y="78" font-size="13" fill="#888">✕</text>
+
+    <!-- Europe map -->
+    <rect x="38" y="106" width="305" height="185" class="hand" stroke-width="1.4"/>
+    <text x="140" y="130" font-size="14" fill="#2e6e96" font-weight="600">Europe uniquement</text>
+    <!-- Europe abstract shape -->
+    <path d="M80,165 Q100,140 130,148 Q160,138 185,155 Q210,145 235,150 Q255,160 250,185 Q248,205 235,215 Q215,228 190,222 Q165,232 145,220 Q118,228 100,214 Q72,200 68,178 Z" class="hand" stroke="#2e6e96" stroke-width="1.5" fill="rgba(46,110,150,.06)"/>
+    <!-- some country fills -->
+    <path d="M120,165 L138,157 L148,168 L140,180 L122,178 Z" fill="#2e6e96" opacity=".35"/>
+    <path d="M155,160 L168,154 L176,166 L165,173 L153,170 Z" fill="#2e6e96" opacity=".65"/>
+    <path d="M185,163 L198,158 L204,170 L193,178 L182,174 Z" fill="#2e6e96" opacity=".9"/>
+    <path d="M132,182 L150,175 L158,188 L144,197 L130,193 Z" fill="#2e6e96" opacity=".45"/>
+    <path d="M162,180 L178,176 L183,190 L170,196 L158,190 Z" fill="#2e6e96" opacity=".7"/>
+    <!-- non-europe hint -->
+    <rect x="48" y="270" width="285" height="16" rx="3" fill="#e8eae6" stroke="#dde0da" stroke-width=".8"/>
+    <text x="155" y="281" font-size="11" fill="#aaa">hors Europe = gris</text>
+    <!-- choro legend -->
+    <defs><linearGradient id="gb" x1="0" x2="1"><stop offset="0" stop-color="#e5f0f7"/><stop offset=".4" stop-color="#9ecae1"/><stop offset=".7" stop-color="#3182bd"/><stop offset="1" stop-color="#08306b"/></linearGradient></defs>
+    <rect x="48" y="288" width="180" height="8" rx="4" fill="url(#gb)" stroke="#dde0da" stroke-width=".7"/>
+    <text x="48" y="305" font-size="10" fill="#888">0</text>
+    <text x="80" y="305" font-size="10" fill="#888">25k</text>
+    <text x="118" y="305" font-size="10" fill="#888">50k</text>
+    <text x="158" y="305" font-size="10" fill="#888">75k+ t</text>
+
+    <!-- side panel -->
+    <rect x="352" y="106" width="106" height="185" class="hand" stroke-width="1.2"/>
+    <rect x="352" y="106" width="106" height="42" class="hand" stroke-width="1.1" fill="#e0eef6" stroke="#2e6e96"/>
+    <text x="360" y="122" font-size="22">🇩🇪</text>
+    <text x="360" y="140" font-size="14" font-weight="600">Allemagne</text>
+    <text x="360" y="154" font-size="10" fill="#2e6e96" letter-spacing="1">ANNÉE 2018</text>
+    <line x1="352" y1="148" x2="458" y2="148" class="hand light" stroke-width=".8"/>
+    <text x="360" y="168" font-size="11" fill="#8a9488">UTILISATION</text>
+    <text x="360" y="186" font-size="20" font-weight="700" fill="#2e6e96">48 230</text>
+    <text x="360" y="200" font-size="11" fill="#8a9488">tonnes</text>
+    <text x="360" y="215" font-size="12" fill="#3a8f5c">↓ −2.1%</text>
+    <line x1="360" y1="222" x2="448" y2="222" class="hand light" stroke-width=".7"/>
+    <text x="360" y="235" font-size="10" fill="#8a9488">Fongicides</text>
+    <rect x="360" y="240" width="64" height="4" rx="2" fill="#eef0ec" stroke="none"/>
+    <rect x="360" y="240" width="50" height="4" rx="2" fill="#2e6e96" stroke="none"/>
+    <text x="360" y="256" font-size="10" fill="#8a9488">Herbicides</text>
+    <rect x="360" y="260" width="64" height="4" rx="2" fill="#eef0ec" stroke="none"/>
+    <rect x="360" y="260" width="35" height="4" rx="2" fill="#3a8f5c" stroke="none"/>
+    <text x="360" y="276" font-size="10" fill="#8a9488">Insecticides</text>
+    <rect x="360" y="280" width="64" height="4" rx="2" fill="#eef0ec" stroke="none"/>
+    <rect x="360" y="280" width="22" height="4" rx="2" fill="#c74545" stroke="none"/>
+
+    <!-- DIVIDERS -->
+    <line x1="28" y1="456" x2="872" y2="456" class="hand dashed" stroke-width="1.5"/>
+    <line x1="472" y1="200" x2="472" y2="614" class="hand dashed" stroke-width="1.5"/>
+
+    <!-- OPERATIONS -->
+    <text x="490" y="230" font-size="22" font-weight="700">OPERATIONS</text>
+    <text x="490" y="258" font-size="16">1. initPestMaps(world) → geoMercator</text>
+    <text x="490" y="280" font-size="16">2. onYearChange(val) → redraw choro</text>
+    <text x="490" y="302" font-size="16">3. Clic .cpth.europe → onDropChange()</text>
+    <text x="490" y="324" font-size="16">4. Hors Europe : cursor:default gris</text>
+    <text x="490" y="346" font-size="16">5. Side panel : état vide → filled</text>
+    <text x="490" y="368" font-size="16">6. buildDropdown() sync ↔ carte</text>
+    <text x="490" y="390" font-size="16">7. clearPest() → reset sélection</text>
+    <text x="490" y="412" font-size="16">8. map-tip tooltip fixed position</text>
+
+    <!-- FOCUS/ZOOM -->
+    <text x="38" y="490" font-size="22" font-weight="700">Focus / Zoom</text>
+    <rect x="38" y="502" width="195" height="96" class="hand" stroke-width="1.2"/>
+    <text x="48" y="520" font-size="13" fill="#888">État vide side panel</text>
+    <text x="95" y="555" font-size="28" fill="#aaa" text-anchor="middle">🗺️</text>
+    <text x="48" y="578" font-size="12" fill="#aaa" text-align="center">Cliquez sur un pays</text>
+    <text x="48" y="592" font-size="12" fill="#aaa">ou choisissez dans la liste</text>
+
+    <rect x="250" y="502" width="200" height="96" class="hand" stroke-width="1.2"/>
+    <text x="260" y="520" font-size="13" fill="#888">Tooltip carte</text>
+    <rect x="260" y="530" width="165" height="40" rx="3" fill="#1e2520" stroke="none"/>
+    <text x="270" y="548" font-size="12" fill="#fff">🇫🇷 France · 2015</text>
+    <text x="270" y="564" font-size="11" fill="#aaa">Pesticides: 32 450 t</text>
+    <text x="260" y="584" font-size="11" fill="#888">.map-tip · position:fixed</text>
+    <text x="260" y="595" font-size="11" fill="#888">opacity:0 → 1 transition</text>
+
+    <!-- DETAIL post-it -->
+    <rect x="491" y="469" width="362" height="128" rx="2" fill="#fffaaa" stroke="#c8b820" stroke-width="1.8"/>
+    <text x="502" y="492" font-size="19" font-weight="700">DETAIL</text>
+    <text x="502" y="514" font-size="16">○  algo : quantize scale D3 · blues palette</text>
+    <text x="502" y="536" font-size="16">○  dépend. : COUNTRIES[] · pestData par pays</text>
+    <text x="502" y="558" font-size="16">○  time : slider 2003 → 2023</text>
+    <text x="502" y="580" font-size="16">○  matériaux : quantités matière active (t)</text>
+    <text x="502" y="596" font-size="15" fill="#666">     8 catégories : fongicides, herbicides…</text>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SHEET 4 — TIMELINE CHART + SCATTER
+═══════════════════════════════════════ -->
+<div class="sheet">
+  <div class="sheet-num">SHEET 4</div>
+  <svg viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        text { font-family: 'Caveat', cursive; fill: #1a1a18; }
+        .hand { stroke: #1a1a18; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .dashed { stroke-dasharray: 7,5; }
+        .light { stroke: #6a6a60; }
+      </style>
+    </defs>
+    <rect x="18" y="18" width="864" height="604" class="hand" stroke-width="2.2"/>
+
+    <!-- TITLE BOX -->
+    <rect x="480" y="28" width="390" height="160" class="hand" stroke-width="1.6"/>
+    <line x1="480" y1="62" x2="870" y2="62" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="92" x2="870" y2="92" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="122" x2="870" y2="122" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="152" x2="870" y2="152" class="hand" stroke-width="1.2"/>
+    <line x1="660" y1="92" x2="660" y2="188" class="hand" stroke-width="1.2"/>
+    <text x="492" y="52" font-size="18" font-weight="600">TITLE :</text>
+    <text x="610" y="52" font-size="17">Timeline + Scatter animé</text>
+    <text x="492" y="82" font-size="18" font-weight="600">AUTHORS :</text>
+    <text x="610" y="82" font-size="17">Équipe projet</text>
+    <text x="492" y="112" font-size="17" font-weight="600">DATE</text>
+    <text x="670" y="112" font-size="17" font-weight="600">SHEET</text>
+    <text x="492" y="138" font-size="16">2026</text>
+    <text x="670" y="138" font-size="16">4 / 5</text>
+    <text x="492" y="168" font-size="17" font-weight="600">TASK</text>
+    <text x="670" y="168" font-size="16">Charts pesticides</text>
+
+    <!-- LAYOUT -->
+    <text x="38" y="52" font-size="22" font-weight="700">Layout</text>
+
+    <!-- Timeline / stacked area -->
+    <rect x="38" y="64" width="420" height="100" class="hand" stroke-width="1.4"/>
+    <text x="48" y="82" font-size="14" font-weight="600">Évolution par catégories (2003–2023)</text>
+    <line x1="58" y1="155" x2="448" y2="155" class="hand light" stroke-width=".8"/>
+    <line x1="58" y1="90" x2="58" y2="155" class="hand light" stroke-width=".8"/>
+    <!-- stacked area layers -->
+    <path d="M58,150 L100,142 L140,138 L180,140 L220,132 L260,126 L300,120 L340,118 L380,112 L420,108 L450,104 L450,155 L58,155 Z" fill="rgba(46,110,150,.25)" stroke="#2e6e96" stroke-width="1.2"/>
+    <path d="M58,150 L100,148 L140,146 L180,148 L220,144 L260,142 L300,140 L340,139 L380,136 L420,134 L450,130" fill="none" stroke="#3a8f5c" stroke-width="1.5"/>
+    <path d="M58,148 L100,146 L140,144 L180,145 L220,142 L260,140 L300,138 L340,137 L380,134" fill="none" stroke="#c74545" stroke-width="1.2"/>
+    <!-- x ticks -->
+    <text x="58" y="162" font-size="10" fill="#888">2003</text>
+    <text x="168" y="162" font-size="10" fill="#888">2008</text>
+    <text x="265" y="162" font-size="10" fill="#888">2013</text>
+    <text x="358" y="162" font-size="10" fill="#888">2018</text>
+    <text x="435" y="162" font-size="10" fill="#888">2023</text>
+    <!-- legend mini -->
+    <circle cx="65" cy="170" r="4" fill="#2e6e96"/>
+    <text x="72" y="174" font-size="11" fill="#888">Fongicides</text>
+    <circle cx="140" cy="170" r="4" fill="#3a8f5c"/>
+    <text x="147" y="174" font-size="11" fill="#888">Herbicides</text>
+    <circle cx="215" cy="170" r="4" fill="#c74545"/>
+    <text x="222" y="174" font-size="11" fill="#888">Insecticides</text>
+    <circle cx="295" cy="170" r="4" fill="#c8a020"/>
+    <text x="302" y="174" font-size="11" fill="#888">Autres</text>
+
+    <!-- Scatter animé -->
+    <rect x="38" y="185" width="420" height="130" class="hand" stroke-width="1.4"/>
+    <text x="48" y="203" font-size="14" font-weight="600">Bio (%) × Intensité pesticides — animé</text>
+    <!-- year watermark -->
+    <text x="390" y="298" font-size="52" font-weight="900" fill="rgba(46,110,150,.07)" text-anchor="end">2015</text>
+    <!-- axes -->
+    <line x1="58" y1="302" x2="448" y2="302" class="hand light" stroke-width=".8"/>
+    <line x1="58" y1="218" x2="58" y2="302" class="hand light" stroke-width=".8"/>
+    <text x="220" y="314" font-size="11" fill="#888">% Surface Bio →</text>
+    <text x="44" y="260" font-size="11" fill="#888" transform="rotate(-90,44,260)">Intensité ↑</text>
+    <!-- circles -->
+    <circle cx="85" cy="285" r="8" fill="#3a8f5c" opacity=".8"/>
+    <circle cx="130" cy="268" r="12" fill="#2e6e96" opacity=".75"/>
+    <circle cx="190" cy="255" r="6" fill="#c74545" opacity=".8"/>
+    <circle cx="250" cy="270" r="10" fill="#3a8f5c" opacity=".7"/>
+    <circle cx="320" cy="248" r="7" fill="#2e6e96" opacity=".8"/>
+    <circle cx="380" cy="240" r="14" fill="#c74545" opacity=".6"/>
+    <circle cx="430" cy="232" r="9" fill="#3a8f5c" opacity=".8"/>
+    <!-- play button -->
+    <rect x="38" y="325" width="135" height="28" rx="14" class="hand" stroke-width="1.2" fill="#2e6e96" stroke="#2e6e96"/>
+    <text x="54" y="343" font-size="14" fill="#fff">▶ Lancer animation</text>
+    <text x="185" y="340" font-size="12" fill="#888">setInterval 700ms · year++</text>
+
+    <!-- DIVIDERS -->
+    <line x1="28" y1="456" x2="872" y2="456" class="hand dashed" stroke-width="1.5"/>
+    <line x1="472" y1="200" x2="472" y2="614" class="hand dashed" stroke-width="1.5"/>
+
+    <!-- OPERATIONS -->
+    <text x="490" y="230" font-size="22" font-weight="700">OPERATIONS</text>
+    <text x="490" y="258" font-size="16">1. initScatter() → spX, spY, rScale</text>
+    <text x="490" y="280" font-size="16">2. drawScatter() → D3 join enter/update</text>
+    <text x="490" y="302" font-size="16">3. ▶ click → setInterval 700ms</text>
+    <text x="490" y="324" font-size="16">4. transition .6s easeCubicInOut</text>
+    <text x="490" y="346" font-size="16">5. year=2023 → clearInterval stop</text>
+    <text x="490" y="368" font-size="16">6. Clic cercle → spSelCountry toggle</text>
+    <text x="490" y="390" font-size="16">7. Unselected → opacity 0.18</text>
+    <text x="490" y="412" font-size="16">8. Label float au cercle sélectionné</text>
+
+    <!-- FOCUS/ZOOM -->
+    <text x="38" y="490" font-size="22" font-weight="700">Focus / Zoom</text>
+    <rect x="38" y="502" width="195" height="96" class="hand" stroke-width="1.2"/>
+    <text x="48" y="520" font-size="13" fill="#888">Cercle sélectionné vs. non</text>
+    <circle cx="90" cy="556" r="14" fill="#2e6e96" opacity=".88" stroke="#1e2520" stroke-width="2.5"/>
+    <text x="78" y="560" font-size="11" fill="#fff">🇩🇪</text>
+    <text x="108" y="545" font-size="12" fill="#888">sélectionné</text>
+    <text x="108" y="560" font-size="11" fill="#aaa">stroke #1e2520</text>
+    <circle cx="90" cy="585" r="10" fill="#3a8f5c" opacity=".18"/>
+    <text x="108" y="588" font-size="12" fill="#888">non-sélect. opacity .18</text>
+
+    <rect x="250" y="502" width="200" height="96" class="hand" stroke-width="1.2"/>
+    <text x="260" y="520" font-size="13" fill="#888">Watermark année SVG</text>
+    <text x="340" y="582" font-size="48" font-weight="900" fill="rgba(46,110,150,.1)" text-anchor="end">2015</text>
+    <text x="260" y="590" font-size="11" fill="#888">font-size 52px · opacity .07</text>
+
+    <!-- DETAIL post-it -->
+    <rect x="491" y="469" width="362" height="128" rx="2" fill="#fffaaa" stroke="#c8b820" stroke-width="1.8"/>
+    <text x="502" y="492" font-size="19" font-weight="700">DETAIL</text>
+    <text x="502" y="514" font-size="16">○  algo : getScatterData(year) → seed-based</text>
+    <text x="502" y="536" font-size="16">○  dépend. : COUNTRIES[] · spColor scale</text>
+    <text x="502" y="558" font-size="16">○  time to build : 600ms D3 transition</text>
+    <text x="502" y="580" font-size="16">○  matériaux : partBio · intensite · surface</text>
+    <text x="502" y="596" font-size="15" fill="#666">     rScale = sqrt(surfaceAgricole)</text>
+  </svg>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SHEET 5 — COMPOSANTS & CHARTE
+═══════════════════════════════════════ -->
+<div class="sheet">
+  <div class="sheet-num">SHEET 5</div>
+  <svg viewBox="0 0 900 640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        text { font-family: 'Caveat', cursive; fill: #1a1a18; }
+        .hand { stroke: #1a1a18; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .dashed { stroke-dasharray: 7,5; }
+        .light { stroke: #6a6a60; }
+      </style>
+    </defs>
+    <rect x="18" y="18" width="864" height="604" class="hand" stroke-width="2.2"/>
+
+    <!-- TITLE BOX -->
+    <rect x="480" y="28" width="390" height="160" class="hand" stroke-width="1.6"/>
+    <line x1="480" y1="62" x2="870" y2="62" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="92" x2="870" y2="92" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="122" x2="870" y2="122" class="hand" stroke-width="1.2"/>
+    <line x1="480" y1="152" x2="870" y2="152" class="hand" stroke-width="1.2"/>
+    <line x1="660" y1="92" x2="660" y2="188" class="hand" stroke-width="1.2"/>
+    <text x="492" y="52" font-size="18" font-weight="600">TITLE :</text>
+    <text x="610" y="52" font-size="17">Composants + Charte graphique</text>
+    <text x="492" y="82" font-size="18" font-weight="600">AUTHORS :</text>
+    <text x="610" y="82" font-size="17">Équipe projet</text>
+    <text x="492" y="112" font-size="17" font-weight="600">DATE</text>
+    <text x="670" y="112" font-size="17" font-weight="600">SHEET</text>
+    <text x="492" y="138" font-size="16">2026</text>
+    <text x="670" y="138" font-size="16">5 / 5</text>
+    <text x="492" y="168" font-size="17" font-weight="600">TASK</text>
+    <text x="670" y="168" font-size="16">Design tokens</text>
+
+    <!-- LAYOUT = visual component inventory -->
+    <text x="38" y="52" font-size="22" font-weight="700">Layout</text>
+
+    <!-- Color swatches row -->
+    <text x="38" y="74" font-size="13" fill="#888">Palette couleurs</text>
+    <rect x="38" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#eef0ec"/>
+    <text x="45" y="122" font-size="10" fill="#888">BG</text>
+    <rect x="82" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#3a8f5c"/>
+    <text x="88" y="122" font-size="10" fill="#888">Green</text>
+    <rect x="126" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#e8f3ed"/>
+    <text x="128" y="122" font-size="10" fill="#888">Grn-p</text>
+    <rect x="170" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#2e6e96"/>
+    <text x="176" y="122" font-size="10" fill="#888">Blue</text>
+    <rect x="214" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#c74545"/>
+    <text x="219" y="122" font-size="10" fill="#888">Red</text>
+    <rect x="258" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#1e2520"/>
+    <text x="263" y="122" font-size="10" fill="#888">Text</text>
+    <rect x="302" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#8a9488"/>
+    <text x="305" y="122" font-size="10" fill="#888">Muted</text>
+    <rect x="346" y="80" width="38" height="28" class="hand" stroke-width="1" fill="#dde0da"/>
+    <text x="349" y="122" font-size="10" fill="#888">Border</text>
+
+    <!-- Typography -->
+    <text x="38" y="142" font-size="13" fill="#888">Typographie</text>
+    <text x="38" y="168" font-size="22" font-weight="700" font-style="italic" fill="#3a8f5c" font-family="serif">GREEN Analytics</text>
+    <text x="38" y="184" font-size="11" fill="#aaa">Playfair Display 900 italic — display</text>
+    <text x="38" y="205" font-size="16">DM Sans 300 — body text</text>
+    <text x="38" y="220" font-size="11" fill="#aaa">DM Sans 400/500 — UI labels</text>
+    <text x="250" y="168" font-size="11" fill="#aaa" letter-spacing="3" text-transform="uppercase">EYEBROW · 0.22em tracking</text>
+    <text x="250" y="188" font-size="18" font-weight="700">Section Title</text>
+    <text x="250" y="205" font-size="11" fill="#aaa">Playfair 700 — 1.4rem</text>
+
+    <!-- Components row -->
+    <text x="38" y="240" font-size="13" fill="#888">Composants</text>
+    <!-- slider -->
+    <rect x="38" y="248" width="120" height="40" class="hand" stroke-width="1.1"/>
+    <text x="45" y="262" font-size="11" fill="#888">Slider</text>
+    <line x1="45" y1="278" x2="150" y2="278" class="hand" stroke="#3a8f5c" stroke-width="2.5"/>
+    <circle cx="95" cy="278" r="7" fill="#3a8f5c" stroke="#fff" stroke-width="2"/>
+    <!-- badge -->
+    <rect x="168" y="248" width="95" height="40" class="hand" stroke-width="1.1"/>
+    <text x="175" y="264" font-size="11" fill="#888">Badge</text>
+    <rect x="175" y="272" width="70" height="12" rx="6" fill="#e8f3ed" stroke="#3a8f5c" stroke-width=".8"/>
+    <text x="180" y="281" font-size="9" fill="#3a8f5c">🌱 ENGRAIS</text>
+    <!-- country tag -->
+    <rect x="273" y="248" width="95" height="40" class="hand" stroke-width="1.1"/>
+    <text x="280" y="264" font-size="11" fill="#888">Tag pays</text>
+    <rect x="280" y="272" width="74" height="12" rx="6" fill="#3a8f5c" stroke="none"/>
+    <text x="285" y="281" font-size="9" fill="#fff">🇫🇷 France ×</text>
+    <!-- button -->
+    <rect x="378" y="248" width="80" height="40" class="hand" stroke-width="1.1"/>
+    <text x="385" y="264" font-size="11" fill="#888">Bouton</text>
+    <rect x="385" y="270" width="65" height="14" rx="7" fill="#2e6e96" stroke="none"/>
+    <text x="390" y="280" font-size="9" fill="#fff">▶ Lancer</text>
+
+    <!-- curseur custom -->
+    <rect x="38" y="298" width="120" height="50" class="hand" stroke-width="1.1"/>
+    <text x="45" y="314" font-size="11" fill="#888">Curseur custom</text>
+    <circle cx="75" cy="335" r="5" fill="#3a8f5c"/>
+    <circle cx="75" cy="335" r="14" class="hand" stroke="#3a8f5c" stroke-width="1.2" opacity=".5"/>
+    <text x="95" y="330" font-size="10" fill="#888">#cur</text>
+    <text x="95" y="344" font-size="10" fill="#888">#cur-ring</text>
+
+    <!-- panel card -->
+    <rect x="168" y="298" width="200" height="50" class="hand" stroke-width="1.1"/>
+    <text x="175" y="314" font-size="11" fill="#888">Panel card .panel</text>
+    <rect x="175" y="320" width="185" height="22" rx="4" class="hand" stroke-width=".9" fill="rgba(255,255,255,.5)"/>
+    <text x="182" y="334" font-size="10" fill="#888">shadow: 0 2px 10px .07 · r:.85rem</text>
+
+    <!-- DIVIDERS -->
+    <line x1="28" y1="456" x2="872" y2="456" class="hand dashed" stroke-width="1.5"/>
+    <line x1="472" y1="200" x2="472" y2="614" class="hand dashed" stroke-width="1.5"/>
+
+    <!-- OPERATIONS -->
+    <text x="490" y="230" font-size="22" font-weight="700">OPERATIONS</text>
+    <text x="490" y="258" font-size="16">1. setAccent(color) → CSS vars live</text>
+    <text x="490" y="280" font-size="16">2. cursor:none sur TOUS éléments</text>
+    <text x="490" y="302" font-size="16">3. mousemove → #cur + #cur-ring lag</text>
+    <text x="490" y="324" font-size="16">4. Polices Google Fonts CDN</text>
+    <text x="490" y="346" font-size="16">5. fadeUp @keyframe 400ms</text>
+    <text x="490" y="368" font-size="16">6. --r:.85rem partout sur panels</text>
+    <text x="490" y="390" font-size="16">7. Transitions: pill .48s · hover .15s</text>
+    <text x="490" y="412" font-size="16">8. scroll-behavior:smooth sur html</text>
+
+    <!-- FOCUS/ZOOM -->
+    <text x="38" y="490" font-size="22" font-weight="700">Focus / Zoom</text>
+    <rect x="38" y="502" width="195" height="96" class="hand" stroke-width="1.2"/>
+    <text x="48" y="520" font-size="13" fill="#888">Section badge variants</text>
+    <rect x="48" y="528" width="80" height="16" rx="8" fill="#e8f3ed" stroke="#3a8f5c" stroke-width=".9"/>
+    <text x="55" y="540" font-size="11" fill="#3a8f5c">🌱 Engrais</text>
+    <rect x="140" y="528" width="82" height="16" rx="8" fill="#e0eef6" stroke="#2e6e96" stroke-width=".9"/>
+    <text x="147" y="540" font-size="11" fill="#2e6e96">🌿 Pesticide</text>
+    <text x="48" y="562" font-size="11" fill="#888">Eyebrow line :</text>
+    <line x1="48" y1="575" x2="70" y2="575" class="hand" stroke="#3a8f5c" stroke-width="1.5"/>
+    <text x="74" y="579" font-size="14" fill="#3a8f5c">AGRICULTURE</text>
+    <text x="48" y="593" font-size="11" fill="#aaa">::before pseudo · 1.4rem width</text>
+
+    <rect x="250" y="502" width="200" height="96" class="hand" stroke-width="1.2"/>
+    <text x="260" y="520" font-size="13" fill="#888">Gradient legends</text>
+    <rect x="260" y="530" width="120" height="8" rx="4" fill="url(#gn2)" stroke="#dde0da" stroke-width=".7"/>
+    <defs><linearGradient id="gn2" x1="0" x2="1"><stop offset="0" stop-color="rgba(58,143,92,.1)"/><stop offset="1" stop-color="#3a8f5c"/></linearGradient></defs>
+    <text x="260" y="548" font-size="10" fill="#888">N: faible → élevée</text>
+    <rect x="260" y="558" width="120" height="8" rx="4" fill="url(#gb2)" stroke="#dde0da" stroke-width=".7"/>
+    <defs><linearGradient id="gb2" x1="0" x2="1"><stop offset="0" stop-color="#e5f0f7"/><stop offset=".5" stop-color="#3182bd"/><stop offset="1" stop-color="#08306b"/></linearGradient></defs>
+    <text x="260" y="576" font-size="10" fill="#888">Pest: 0 → 75k+ tonnes</text>
+    <rect x="260" y="584" width="120" height="8" rx="4" fill="url(#gr2)" stroke="#dde0da" stroke-width=".7"/>
+    <defs><linearGradient id="gr2" x1="0" x2="1"><stop offset="0" stop-color="rgba(199,69,69,.1)"/><stop offset="1" stop-color="#c74545"/></linearGradient></defs>
+    <text x="260" y="598" font-size="10" fill="#888">P: faible → élevée</text>
+
+    <!-- DETAIL post-it -->
+    <rect x="491" y="469" width="362" height="128" rx="2" fill="#fffaaa" stroke="#c8b820" stroke-width="1.8"/>
+    <text x="502" y="492" font-size="19" font-weight="700">DETAIL</text>
+    <text x="502" y="514" font-size="16">○  algorithms : setAccent() swap vars</text>
+    <text x="502" y="536" font-size="16">○  dépend. : Google Fonts CDN</text>
+    <text x="502" y="558" font-size="16">○  time to build : cursor lag .09s</text>
+    <text x="502" y="580" font-size="16">○  matériaux &amp; quantités :</text>
+    <text x="502" y="596" font-size="15" fill="#666">     12 variables CSS root + 8 sémantiques</text>
+  </svg>
+</div>
+
+</body>
+</html>
